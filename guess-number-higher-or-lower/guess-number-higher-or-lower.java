@@ -10,22 +10,24 @@
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
         
-        int l=1;
-        int r=n;
-        while(l<=r)
-        {
-            int mid=r-(r-l)/2;
-            if(guess(mid)==0)
-                return mid;
-            else if(guess(mid)==-1)
-            {
-                r=mid-1;
-            }
-            else
-                l=mid+1;
-        }
+         int low=1;
+         int high=n;
+         while(low<=high)
+         {
+             int mid=(high)-(high-low)/2;
+         //    Sytem.out.println(guess(mid));
+             if(guess(mid)==0)
+                 return (int)mid;
+             else if(guess(mid)==1)
+             {
+                 low=mid+1;
+             }
+             else
+             {
+                 high=mid-1;
+             }
+         }
         return 0;
-        
         
     }
 }

@@ -14,16 +14,23 @@
  * }
  */
 class Solution {
-    public int sum(TreeNode root,boolean x)
+    public int sum(TreeNode root,boolean isLeft)
     {
-        if(root==null)return 0;
-        if(root.left==null && root.right==null && x==true)
+        // If the tree is empty, sum is 0.
+        if(root==null)
+            return 0;
+        // If current node is leaf node and if it is left node, then return its value
+        if(root.left==null && root.right==null && isLeft==true)
          return root.val;
+        // Perform the same on left and right subtrees, and return their sum. Whenever calling left subtree, pass true as isLeft, because its on left.
         return sum(root.left,true)+sum(root.right,false);
     }
     public int sumOfLeftLeaves(TreeNode root) {
+        // If the tree is empty, sum is 0.
         if(root==null)
             return 0;
-        return sum(root.left,true)+sum(root.right,false);
+        // Perform the same on left and right subtrees, and return their sum. Whenever calling left subtree, pass true as isLeft, because its on left.
+        return sum(root.left,true)+sum(root.right,false); 
+     
     }
 }
